@@ -15,6 +15,7 @@ public class ConstraintLayout extends AppCompatActivity {
 
     ListView listView;
     String countries[];
+
     ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
