@@ -17,6 +17,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,9 +25,8 @@ public class MainActivity extends AppCompatActivity {
     Button ok;
     TextView result;
     ImageView image;
-    ToggleButton toggleButton;
-    Spinner spinner;
-    ArrayAdapter adapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,40 +36,12 @@ public class MainActivity extends AppCompatActivity {
         ok = findViewById(R.id.btnOK);
         result = findViewById(R.id.ResultTextView);
         image = findViewById(R.id.imageExample);
-        toggleButton = findViewById(R.id.toggleButtonShow);
-        spinner = findViewById(R.id.spinnerCountry);
 
-        adapter = ArrayAdapter.createFromResource(this, R.array.countries,
-                android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ok.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String country = adapterView.getItemAtPosition(i).toString();
-                result.setText(country);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "This is a Toast Message", Toast.LENGTH_LONG).sh
             }
         });
-        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if (isChecked) {
-                    image.setVisibility(View.INVISIBLE);
-                    result.setText("Image is Hidden");
-                } else {
-                    image.setVisibility(View.VISIBLE);
-                    result.setText("Image is Shown");
-                }
-            }
-        });
-
-
-
     }
 }
