@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "This is a Toast Message", Toast.LENGTH_LONG).sh
+                Toast.makeText(getApplicationContext(), "This is a Toast Message", Toast.LENGTH_LONG).show();
             }
         });
     }
